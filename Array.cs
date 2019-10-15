@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyUtils;
 
 namespace Array
 {
@@ -16,11 +17,11 @@ namespace Array
         {
             int N = 5;
             int[] A = new int[N];
-            for(int i = 0; i <= N; i++)
+            for (int i = 0; i <= N; i++)
             {
                 A[i] = i + 1;
             }
-            for(int i = 0; i <= N; i++)
+            for (int i = 0; i <= N; i++)
             {
                 Console.Write(A[i] + " ");
             }
@@ -32,7 +33,7 @@ namespace Array
             A[0] = 2;
             for (int i = 1; i <= N; i++)
             {
-                A[i] = A[i-1] * 2;
+                A[i] = A[i - 1] * 2;
             }
             for (int i = 0; i <= N; i++)
             {
@@ -48,7 +49,7 @@ namespace Array
             a[0] = A;
             for (int i = 1; i <= N; i++)
             {
-                a[i] = a[i-1] + D;
+                a[i] = a[i - 1] + D;
             }
             for (int i = 0; i <= N; i++)
             {
@@ -110,16 +111,16 @@ namespace Array
             int N = 45;
             Random r = new Random(50);
             int[] a = new int[N];
-            for(int i=0; i <= N; i++)
+            for (int i = 0; i <= N; i++)
             {
                 a[i] = r.Next();
             }
             int[] b = new int[a.Length];
-            for(int i=a.Length;i<=0;i--)
+            for (int i = a.Length; i <= 0; i--)
             {
                 b[a.Length - i] = a[i];
             }
-            for(int i = 0; i <= b.Length; i++)
+            for (int i = 0; i <= b.Length; i++)
             {
                 Console.Write(b[i] + " ");
             }
@@ -268,6 +269,148 @@ namespace Array
             {
                 Console.Write(A[i] + " ");
             }
+        }
+        static void Array16()
+        {
+            int N = 3;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            for (int i = 1; i < N; i = i + 2) Console.Write(A[i] + " " + A[N - 1]);
+        }
+        static void Array17()
+        {
+            int N = 23;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            for (int i = 1; i < N; i = i + 2) Console.Write(A[i] + " " + A[i + 1] + " " + A[N - 1] + " " + A[N - 2]);
+        }
+        static void Array18()
+        {
+            Aray.ArayGenerate(1, 100, 10);
+            int k = 0;
+            while(k==0)
+            {
+                for(int i=0;i<10;i++)
+                {
+                    if (A[i]<A[10])
+                    {
+                        Console.Write(A[i]);
+                        k++;
+                    }
+                }
+            }
+            if (k == 0) Console.WriteLine(0);
+        }
+        static void Array19()
+        {
+            MyUtils.Aray.ArayGenerate(1, 100, 10);
+            int rez = A[0];
+            for (int i = 1; i < 10; i++)
+            {
+                if (A[i] < A[10] && A[i] > A[1]) rez = A[i];
+            }
+            Console.Write(rez);
+        }
+        static void Array20()
+        {
+            int N = 12;
+            int L = 2;
+            int K = 9;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int rez = 0;
+            for (int i = L; i <= K; i++)
+            {
+                rez = rez + A[i];
+            }
+            Console.Write(rez);
+        }
+        static void Array21()
+        {
+            int N = 5;
+            int L = 1;
+            int K = 3;
+            int count = 0;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int rez = 0;
+            for (int i = L; i <= K; i++)
+            {
+                count++;
+                rez = rez + A[i];
+            }
+            Console.Write(rez/count);
+        }
+        static void Array22()
+        {
+            int N = 19;
+            int L = 9;
+            int K = 12;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int rez = 0;
+            for (int i = 0; i < L; i++)
+            {
+                rez = rez + A[i];
+            }
+            for (int i = K; i < N; i++)
+            {
+                rez = rez + A[i];
+            }
+            Console.Write(rez);
+        }
+        static void Array23()
+        {
+            int N = 19;
+            int L = 9;
+            int K = 12;
+            int count = 0;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int rez = 0;
+            for (int i = 0; i < L; i++)
+            {
+                rez = rez + A[i];
+                count++;
+            }
+            for (int i = K; i < N; i++)
+            {
+                rez = rez + A[i];
+                count++;
+            }
+            Console.Write(rez/count);
+        }
+        static void Array24()
+        {
+            int N = 14;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int d = A[1] - A[0];
+            int k = 0;
+            while(k==0)
+            {
+                for (int i=1;i<N;i++)
+                {
+                    if(A[i+1]-A[i] != d)
+                    {
+                        k++;
+                    }
+                }
+            }
+            if (k == 0) Console.WriteLine(d);
+            else Console.WriteLine(0);
+        }
+        static void Array25()
+        {
+            int N = 14;
+            MyUtils.Aray.ArayGenerate(1, 100, N);
+            int d = A[1] / A[0];
+            int k = 0;
+            while (k == 0)
+            {
+                for (int i = 1; i < N; i++)
+                {
+                    if (A[i + 1] / A[i] != d)
+                    {
+                        k++;
+                    }
+                }
+            }
+            if (k == 0) Console.WriteLine(d);
+            else Console.WriteLine(0);
         }
     }
 }
